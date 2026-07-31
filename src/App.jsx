@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import GameBoard from './components/GameBoard.jsx'
+import HowToPlay from './components/HowToPlay.jsx'
 import { LEVELS } from './game/levelConfig.js'
 import './App.css'
 
@@ -81,6 +82,7 @@ function App() {
                 </button>
               ))}
             </div>
+            <HowToPlay iconChar={theme.iconChar} />
           </div>
         ) : (
           <GameBoard
