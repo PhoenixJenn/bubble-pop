@@ -33,6 +33,7 @@ function App() {
       <div className="theme-canvas" aria-hidden="true">
         <div className="beach-scene" />
         <div className="christmas-bg" />
+        <div className="tropical-bg" />
         <div className="aurora aurora--1" />
         <div className="aurora aurora--2" />
         <div className="aurora aurora--3" />

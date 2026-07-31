@@ -1196,6 +1196,25 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════
+   TROPICAL — flower/leaf tile background
+   ══════════════════════════════════════════════════════════════════ */
+
+.tropical-bg {
+  position: absolute;
+  inset: -30%;
+  background: url('/images/tropical.png') repeat;
+  background-size: 480px;
+  transform: rotate(-14deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+[data-theme="tropical"] .tropical-bg {
+  opacity: 0.15;
+}
+
+/* ══════════════════════════════════════════════════════════════════
    BEACHY — beach scene illustration
    ══════════════════════════════════════════════════════════════════ */
 
