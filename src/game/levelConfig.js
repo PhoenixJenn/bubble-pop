@@ -4,7 +4,7 @@
 export const LEVELS = [
   {
     id: 'level-1',
-    name: 'First Pop',
+    name: 'Pop',
     rows: 8,
     cols: 8,
     colors: ['coral', 'teal', 'gold', 'plum'],
@@ -17,7 +17,7 @@ export const LEVELS = [
   },
   {
     id: 'level-2',
-    name: 'Rising Tide',
+    name: 'Super Pop',
     rows: 9,
     cols: 9,
     colors: ['coral', 'teal', 'gold', 'plum'],
@@ -30,7 +30,7 @@ export const LEVELS = [
   },
   {
     id: 'level-3',
-    name: 'Galaxy Brain',
+    name: 'Mega Pop',
     rows: 10,
     cols: 10,
     colors: ['coral', 'teal', 'gold', 'plum'],

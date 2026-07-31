@@ -5,7 +5,6 @@ import './App.css'
 
 const THEMES = [
   { id: 'beachy',       label: '🌅 Beachy',       iconChar: '🌴' },
-  { id: 'classic',      label: '🌙 Classic',      iconChar: '✦'  },
   { id: 'christmas',    label: '🎄 Christmas',    iconChar: '🌲' },
   { id: 'tropical',     label: '🌺 Tropical',     iconChar: '🌺' },
   { id: 'starry-night', label: '🌠 Starry Night', iconChar: '⭐' },

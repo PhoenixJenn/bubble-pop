@@ -35,32 +35,6 @@
   --font-body:    'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* ─── CLASSIC ─────────────────────────────────────────────────────────────── */
-[data-theme="classic"] {
-  --body-bg: radial-gradient(circle at 20% 0%, #1B2A45 0%, #0F1A2B 55%);
-
-  --surface:        #16233A;
-  --surface-raised: #16233A;
-  --surface-border: rgba(255, 255, 255, 0.06);
-  --on-surface:     #F4F6FB;
-  --on-surface-muted: #8592AD;
-
-  --coral: #FF6F59;  --coral-dark: #D94F3C;
-  --teal:  #1FB6A8;  --teal-dark:  #128C81;
-  --gold:  #FFC24B;  --gold-dark:  #E0A22E;
-  --plum:  #9B7EDE;  --plum-dark:  #7857BE;
-
-  --moves-box:            #1A4A36;
-  --moves-label-color:    #7DBFA0;
-  --score-color:          #FFC24B;
-  --booster-btn-bg:       #1E3050;
-  --booster-btn-hover:    #253B60;
-  --booster-selected-bg:  #1A4A36;
-  --booster-selected-border: #FFC24B;
-  --result-overlay:       rgba(15, 26, 43, 0.88);
-  --result-title:         #FFC24B;
-}
-
 /* ─── CHRISTMAS ───────────────────────────────────────────────────────────── */
 [data-theme="christmas"] {
   --body-bg: linear-gradient(

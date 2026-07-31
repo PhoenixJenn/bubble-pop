@@ -250,14 +250,6 @@
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Classic: gradient-clip text instead of white */
-[data-theme="classic"] .app__header h1 {
-  background: linear-gradient(135deg, var(--coral), var(--gold));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: none;
-}
 
 .app__header p {
   margin: 0 0 0.85rem;
@@ -265,9 +257,6 @@
   font-size: 0.93rem;
 }
 
-[data-theme="classic"] .app__header p {
-  color: #A9B4CC;
-}
 
 /* Theme toggle pills */
 .theme-pills {
@@ -316,9 +305,6 @@
   backdrop-filter: blur(8px);
 }
 
-[data-theme="classic"] .hud {
-  backdrop-filter: none;
-}
 
 .hud__moves {
   display: flex;
@@ -382,7 +368,6 @@
 .hud__swatch--gold  { background: var(--gold); }
 .hud__swatch--plum  { background: var(--plum); }
 .hud__swatch--icon                    { background: #2E5E20; font-size: 0.8rem; }
-[data-theme="classic"] .hud__swatch--icon  { background: #2A3F5E; color: #90CAF9; }
 [data-theme="christmas"] .hud__swatch--icon { background: #1B5E20; font-size: 0.75rem; }
 
 .hud__score {
@@ -435,9 +420,6 @@
 .game-board[data-cols="9"] { gap: 4px; padding: 7px; }
 .game-board[data-cols="10"] { gap: 3px; padding: 6px; }
 
-[data-theme="classic"] .game-board {
-  backdrop-filter: none;
-}
 
 .game-board--booster .bubble { cursor: crosshair; }
 
@@ -496,10 +478,6 @@
 .bubble--gold  { background: linear-gradient(145deg, #FFD54F, var(--gold)  55%, var(--gold-dark)); }
 .bubble--plum  { background: linear-gradient(145deg, #F48FB1, var(--plum)  55%, var(--plum-dark)); }
 
-[data-theme="classic"] .bubble--coral { background: radial-gradient(circle at 30% 25%, #FFB199, var(--coral) 55%, var(--coral-dark)); }
-[data-theme="classic"] .bubble--teal  { background: radial-gradient(circle at 30% 25%, #7EE6DA, var(--teal)  55%, var(--teal-dark)); }
-[data-theme="classic"] .bubble--gold  { background: radial-gradient(circle at 30% 25%, #FFE29A, var(--gold)  55%, var(--gold-dark)); }
-[data-theme="classic"] .bubble--plum  { background: radial-gradient(circle at 30% 25%, #C9B6F5, var(--plum)  55%, var(--plum-dark)); }
 
 /* Christmas: gradient-clip title */
 [data-theme="christmas"] .app__header h1 {
@@ -708,9 +686,6 @@
   backdrop-filter: blur(8px);
 }
 
-[data-theme="classic"] .booster-tray {
-  backdrop-filter: none;
-}
 
 .booster-tray__label {
   margin: 0 0 0.45rem;
