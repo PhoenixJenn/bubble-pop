@@ -1,0 +1,1056 @@
+/* ══════════════════════════════════════════════════════════════════
+   STARRY NIGHT — theme canvas, aurora, shooting stars
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Canvas sits fixed behind everything */
+.theme-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Starfield — each star at a unique position, no tiling */
+[data-theme="starry-night"] .theme-canvas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image:
+    /* bright stars */
+    radial-gradient(circle at  7% 12%, rgba(255,255,255,0.95) 0.8px, transparent 1.6px),
+    radial-gradient(circle at 41%  4%, rgba(255,255,255,0.90) 0.7px, transparent 1.5px),
+    radial-gradient(circle at 78% 18%, rgba(255,255,255,0.92) 1.0px, transparent 1.8px),
+    radial-gradient(circle at 94%  7%, rgba(255,255,255,0.85) 0.8px, transparent 1.5px),
+    radial-gradient(circle at 29% 38%, rgba(255,255,255,0.90) 1.0px, transparent 1.8px),
+    radial-gradient(circle at 63% 52%, rgba(255,255,255,0.88) 0.7px, transparent 1.4px),
+    radial-gradient(circle at 85% 35%, rgba(255,255,255,0.95) 1.0px, transparent 1.8px),
+    radial-gradient(circle at 15% 68%, rgba(255,255,255,0.90) 0.8px, transparent 1.5px),
+    radial-gradient(circle at 52% 75%, rgba(255,255,255,0.85) 1.0px, transparent 1.8px),
+    radial-gradient(circle at 37% 88%, rgba(255,255,255,0.92) 0.8px, transparent 1.5px),
+    radial-gradient(circle at 72% 82%, rgba(255,255,255,0.88) 0.7px, transparent 1.4px),
+    /* medium stars */
+    radial-gradient(circle at 18% 23%, rgba(255,255,255,0.60) 0.6px, transparent 1.2px),
+    radial-gradient(circle at 54% 15%, rgba(255,255,255,0.55) 0.5px, transparent 1.1px),
+    radial-gradient(circle at 87% 28%, rgba(255,255,255,0.62) 0.6px, transparent 1.2px),
+    radial-gradient(circle at  3% 42%, rgba(255,255,255,0.58) 0.5px, transparent 1.0px),
+    radial-gradient(circle at 67% 38%, rgba(255,255,255,0.60) 0.6px, transparent 1.2px),
+    radial-gradient(circle at 31% 55%, rgba(255,255,255,0.55) 0.5px, transparent 1.0px),
+    radial-gradient(circle at 79% 62%, rgba(255,255,255,0.62) 0.6px, transparent 1.2px),
+    radial-gradient(circle at 11% 78%, rgba(255,255,255,0.58) 0.5px, transparent 1.0px),
+    radial-gradient(circle at 48% 85%, rgba(220,235,255,0.60) 0.6px, transparent 1.2px),
+    radial-gradient(circle at 91% 72%, rgba(255,255,255,0.55) 0.5px, transparent 1.0px),
+    radial-gradient(circle at 59% 94%, rgba(255,255,255,0.60) 0.6px, transparent 1.2px),
+    /* faint stars */
+    radial-gradient(circle at 44%  8%, rgba(255,255,255,0.35) 0.5px, transparent 0.9px),
+    radial-gradient(circle at  9% 32%, rgba(200,220,255,0.38) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 71% 45%, rgba(255,255,255,0.32) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 25% 62%, rgba(200,220,255,0.35) 0.5px, transparent 0.9px),
+    radial-gradient(circle at 58% 28%, rgba(255,255,255,0.30) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 82% 15%, rgba(200,220,255,0.38) 0.5px, transparent 0.9px),
+    radial-gradient(circle at 36% 72%, rgba(255,255,255,0.32) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 64% 88%, rgba(200,220,255,0.35) 0.5px, transparent 0.9px),
+    radial-gradient(circle at  5% 55%, rgba(255,255,255,0.30) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 92% 45%, rgba(200,220,255,0.38) 0.5px, transparent 0.9px),
+    radial-gradient(circle at 47% 98%, rgba(255,255,255,0.32) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 19% 88%, rgba(200,220,255,0.35) 0.4px, transparent 0.8px),
+    radial-gradient(circle at 75% 95%, rgba(255,255,255,0.30) 0.5px, transparent 0.9px);
+  animation: starfield-twinkle 6s ease-in-out infinite alternate;
+}
+
+@keyframes starfield-twinkle {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1.0; }
+}
+
+/* ── Aurora bands ─────────────────────────────────────────────── */
+
+.aurora {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  opacity: 0;          /* hidden in all other themes */
+  pointer-events: none;
+}
+
+/* Band 1 — aurora turquoise curtain (#01CBAE) */
+[data-theme="starry-night"] .aurora--1 {
+  top: 0%;
+  height: 34vh;
+  background: linear-gradient(
+    180deg,
+    transparent              0%,
+    rgba(0, 200, 175, 0.68)  36%,
+    rgba(0, 170, 210, 0.48)  65%,
+    transparent              100%
+  );
+  filter: blur(20px);
+  animation: aurora-wave-1 12s ease-in-out infinite;
+}
+
+/* Band 2 — aurora violet ribbon (#524094) with steel blue edge */
+[data-theme="starry-night"] .aurora--2 {
+  top: 6%;
+  height: 28vh;
+  background: linear-gradient(
+    180deg,
+    transparent              0%,
+    rgba(82, 64, 148, 0.60)  40%,
+    rgba(32, 130, 166, 0.38) 68%,
+    transparent              100%
+  );
+  filter: blur(30px);
+  animation: aurora-wave-2 17s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Band 3 — bright green aurora tips */
+[data-theme="starry-night"] .aurora--3 {
+  top: 16%;
+  height: 20vh;
+  background: linear-gradient(
+    180deg,
+    transparent              0%,
+    rgba(0, 200, 120, 0.50)  50%,
+    transparent              100%
+  );
+  filter: blur(16px);
+  animation: aurora-wave-3 8s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+/* Each band gets its own keyframe so they pulse out of phase */
+@keyframes aurora-wave-1 {
+  0%   { transform: skewX(-10deg) translateX(-14%) scaleY(0.30); opacity: 0.15; }
+  25%  { transform: skewX(7deg)   translateX(5%)   scaleY(1.40); opacity: 1.00; }
+  55%  { transform: skewX(-3deg)  translateX(11%)  scaleY(0.80); opacity: 0.65; }
+  80%  { transform: skewX(9deg)   translateX(-6%)  scaleY(1.20); opacity: 0.85; }
+  100% { transform: skewX(-10deg) translateX(-14%) scaleY(0.30); opacity: 0.15; }
+}
+@keyframes aurora-wave-2 {
+  0%   { transform: skewX(8deg)   translateX(10%)  scaleY(0.50); opacity: 0.20; }
+  30%  { transform: skewX(-6deg)  translateX(-8%)  scaleY(1.30); opacity: 0.90; }
+  60%  { transform: skewX(4deg)   translateX(5%)   scaleY(0.70); opacity: 0.50; }
+  100% { transform: skewX(8deg)   translateX(10%)  scaleY(0.50); opacity: 0.20; }
+}
+@keyframes aurora-wave-3 {
+  0%   { transform: skewX(-5deg)  translateX(-5%)  scaleY(0.20); opacity: 0.10; }
+  40%  { transform: skewX(10deg)  translateX(8%)   scaleY(1.60); opacity: 1.00; }
+  70%  { transform: skewX(-8deg)  translateX(-3%)  scaleY(0.60); opacity: 0.40; }
+  100% { transform: skewX(-5deg)  translateX(-5%)  scaleY(0.20); opacity: 0.10; }
+}
+
+/* ── Shooting stars — less frequent, varied directions ────────── */
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(200, 220, 255, 0.6) 70%,
+    transparent
+  );
+  opacity: 0;
+  transform-origin: left center;
+}
+
+/* Visible for only ~6% of a long cycle → very infrequent */
+@keyframes shoot {
+  0%   { opacity: 0;    transform: rotate(var(--angle)) translateX(0); }
+  1%   { opacity: 1.0; }
+  6%   { opacity: 0;    transform: rotate(var(--angle)) translateX(320px); }
+  100% { opacity: 0;    transform: rotate(var(--angle)) translateX(320px); }
+}
+
+[data-theme="starry-night"] .shooting-star--1 {
+  top: 5%;  left: 3%;   width: 120px; --angle: -22deg;
+  animation: shoot 24s ease-out infinite; animation-delay: -2s;
+}
+[data-theme="starry-night"] .shooting-star--2 {
+  top: 15%; left: 60%;  width: 90px;  --angle: -48deg;
+  animation: shoot 33s ease-out infinite; animation-delay: -11s;
+}
+[data-theme="starry-night"] .shooting-star--3 {
+  top: 3%;  left: 80%;  width: 150px; --angle: -14deg;
+  animation: shoot 19s ease-out infinite; animation-delay: -17s;
+}
+[data-theme="starry-night"] .shooting-star--4 {
+  top: 25%; left: 18%;  width: 110px; --angle: -62deg;
+  animation: shoot 41s ease-out infinite; animation-delay: -6s;
+}
+[data-theme="starry-night"] .shooting-star--5 {
+  top: 10%; left: 43%;  width: 80px;  --angle: -35deg;
+  animation: shoot 28s ease-out infinite; animation-delay: -24s;
+}
+
+/* ── Star burst — launched on icon-group pop (all themes) ─────── */
+
+.star-burst {
+  position: fixed;
+  height: 2px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 200;
+  transform-origin: left center;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.0),
+    rgba(255, 255, 255, 1.0) 30%,
+    rgba(220, 240, 255, 0.8) 60%,
+    rgba(255, 255, 255, 0.0)
+  );
+  animation: star-burst-fly var(--dur) ease-out forwards;
+}
+
+.star-burst--md { height: 2.5px; box-shadow: 0 0 4px 1px rgba(200, 220, 255, 0.5); }
+.star-burst--lg { height: 3px;   box-shadow: 0 0 8px 2px rgba(180, 210, 255, 0.7); }
+
+@keyframes star-burst-fly {
+  0%   { opacity: 0.95; transform: rotate(var(--rotate)) translateX(0); }
+  70%  { opacity: 0.80; }
+  100% { opacity: 0;    transform: rotate(var(--rotate)) translateX(var(--dist)); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   APP SHELL
+   ══════════════════════════════════════════════════════════════════ */
+
+.app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Header ---------- */
+
+.app__header {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.app__header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  letter-spacing: 0.01em;
+  margin: 0 0 0.25rem;
+  /* Beachy: white text on gradient sky */
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Classic: gradient-clip text instead of white */
+[data-theme="classic"] .app__header h1 {
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.app__header p {
+  margin: 0 0 0.85rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.93rem;
+}
+
+[data-theme="classic"] .app__header p {
+  color: #A9B4CC;
+}
+
+/* Theme toggle pills */
+.theme-pills {
+  display: inline-flex;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 99px;
+  padding: 3px;
+}
+
+.theme-pill {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 99px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.theme-pill--active {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.theme-pill:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---------- HUD ---------- */
+
+.hud {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.65rem;
+  backdrop-filter: blur(8px);
+}
+
+[data-theme="classic"] .hud {
+  backdrop-filter: none;
+}
+
+.hud__moves {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--moves-box);
+  border-radius: 10px;
+  padding: 0.4rem 0.7rem;
+  min-width: 52px;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.hud__moves-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--moves-label-color);
+}
+
+.hud__moves-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.hud__targets {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.hud__target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--on-surface);
+}
+
+.hud__target--done { opacity: 0.4; }
+.hud__target--done .hud__target-text { text-decoration: line-through; }
+
+.hud__swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.hud__swatch--coral { background: var(--coral); }
+.hud__swatch--teal  { background: var(--teal); }
+.hud__swatch--gold  { background: var(--gold); }
+.hud__swatch--plum  { background: var(--plum); }
+.hud__swatch--icon                    { background: #2E5E20; font-size: 0.8rem; }
+[data-theme="classic"] .hud__swatch--icon  { background: #2A3F5E; color: #90CAF9; }
+[data-theme="christmas"] .hud__swatch--icon { background: #1B5E20; font-size: 0.75rem; }
+
+.hud__score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.hud__high-score {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--on-surface-muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.hud__score-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--score-color);
+  white-space: nowrap;
+}
+
+/* ---------- Board ---------- */
+
+.game-board-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.game-board {
+  display: grid;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  padding: 8px;
+  backdrop-filter: blur(8px);
+  /* Fixed square canvas — tiles scale down as N grows */
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Tighter spacing for denser grids */
+.game-board[data-cols="9"] { gap: 4px; padding: 7px; }
+.game-board[data-cols="10"] { gap: 3px; padding: 6px; }
+
+[data-theme="classic"] .game-board {
+  backdrop-filter: none;
+}
+
+.game-board--booster .bubble { cursor: crosshair; }
+
+.bubble {
+  /* Fill the grid cell; the board's aspect-ratio + explicit rows keep cells square */
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  border-radius: 22%;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 -3px 5px rgba(0, 0, 0, 0.2),
+    0 2px 5px rgba(0, 0, 0, 0.18);
+  animation: drop-in 220ms ease-out;
+  transition: transform 120ms ease, filter 80ms ease;
+}
+
+.bubble:hover  { transform: scale(1.07); filter: brightness(1.1); }
+.bubble:active { transform: scale(0.9); }
+.bubble:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
+.bubble__value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.55rem, 2.2vw, 1rem);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Scale font down in denser grids */
+.game-board[data-cols="9"]  .bubble__value { font-size: clamp(0.5rem, 1.9vw, 0.9rem); }
+.game-board[data-cols="10"] .bubble__value { font-size: clamp(0.45rem, 1.7vw, 0.8rem); }
+
+.bubble__icon {
+  font-size: clamp(0.9rem, 2.6vw, 1.2rem);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Tile colors */
+.bubble--coral { background: linear-gradient(145deg, #FF8A75, var(--coral) 55%, var(--coral-dark)); }
+.bubble--teal  { background: linear-gradient(145deg, #5DD9EA, var(--teal)  55%, var(--teal-dark)); }
+.bubble--gold  { background: linear-gradient(145deg, #FFD54F, var(--gold)  55%, var(--gold-dark)); }
+.bubble--plum  { background: linear-gradient(145deg, #F48FB1, var(--plum)  55%, var(--plum-dark)); }
+
+[data-theme="classic"] .bubble--coral { background: radial-gradient(circle at 30% 25%, #FFB199, var(--coral) 55%, var(--coral-dark)); }
+[data-theme="classic"] .bubble--teal  { background: radial-gradient(circle at 30% 25%, #7EE6DA, var(--teal)  55%, var(--teal-dark)); }
+[data-theme="classic"] .bubble--gold  { background: radial-gradient(circle at 30% 25%, #FFE29A, var(--gold)  55%, var(--gold-dark)); }
+[data-theme="classic"] .bubble--plum  { background: radial-gradient(circle at 30% 25%, #C9B6F5, var(--plum)  55%, var(--plum-dark)); }
+
+/* Christmas: gradient-clip title */
+[data-theme="christmas"] .app__header h1 {
+  background: linear-gradient(135deg, #D32F2F, #F9A825);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+[data-theme="christmas"] .app__header p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Christmas tile overrides — richer shading on light surface */
+[data-theme="christmas"] .bubble--coral { background: radial-gradient(circle at 30% 25%, #EF9A9A, var(--coral) 55%, var(--coral-dark)); }
+[data-theme="christmas"] .bubble--teal  { background: radial-gradient(circle at 30% 25%, #A5D6A7, var(--teal)  55%, var(--teal-dark)); }
+[data-theme="christmas"] .bubble--gold  { background: radial-gradient(circle at 30% 25%, #FFE082, var(--gold)  55%, var(--gold-dark)); }
+[data-theme="christmas"] .bubble--plum  { background: radial-gradient(circle at 30% 25%, #CE93D8, var(--plum)  55%, var(--plum-dark)); }
+
+/* ── Starry Night overrides ─────────────────────────────────────────────── */
+
+[data-theme="starry-night"] .app__header h1 {
+  background: linear-gradient(135deg, #A78BFA, #38BDF8, #34D399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+[data-theme="starry-night"] .app__header p {
+  color: rgba(200, 220, 255, 0.70);
+}
+
+/* Glass panels — backdrop-filter lets aurora glow through */
+[data-theme="starry-night"] .hud,
+[data-theme="starry-night"] .game-board,
+[data-theme="starry-night"] .booster-tray {
+  backdrop-filter: blur(14px) saturate(1.4);
+}
+
+/* Star swatch in HUD */
+[data-theme="starry-night"] .hud__swatch--icon {
+  background: #0D0A2E;
+  color: #FDE68A;
+  font-size: 0.9rem;
+}
+
+/* Tile gradients — aurora palette */
+[data-theme="starry-night"] .bubble--coral {
+  background: radial-gradient(circle at 30% 25%, #C8B8F0, var(--coral) 55%, var(--coral-dark));
+}
+[data-theme="starry-night"] .bubble--teal {
+  background: radial-gradient(circle at 30% 25%, #9EEEE4, var(--teal) 55%, var(--teal-dark));
+}
+[data-theme="starry-night"] .bubble--gold {
+  background: radial-gradient(circle at 30% 25%, #A0C8DC, var(--gold) 55%, var(--gold-dark));
+}
+[data-theme="starry-night"] .bubble--plum {
+  background: radial-gradient(circle at 30% 25%, #9AEEC0, var(--plum) 55%, var(--plum-dark));
+}
+
+/* Star icon tile — deep space with golden glow */
+[data-theme="starry-night"] .bubble--icon {
+  background: radial-gradient(circle at 40% 35%, #1E1B4B, #0D0A2E);
+  box-shadow:
+    inset 0 -2px 4px rgba(0,0,0,0.4),
+    0 0 8px rgba(167, 139, 250, 0.4),
+    0 2px 5px rgba(0,0,0,0.5);
+}
+
+[data-theme="starry-night"] .bubble--icon .bubble__icon {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  filter: drop-shadow(0 0 4px rgba(253, 230, 138, 0.8));
+}
+
+/* ── Tropical overrides ─────────────────────────────────────────────────── */
+
+[data-theme="tropical"] .app__header p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Denser grid */
+[data-theme="tropical"] .game-board {
+  gap: 3px;
+  padding: 6px;
+  backdrop-filter: none;
+}
+
+/* Flower icon — transparent tile, full-colour emoji */
+[data-theme="tropical"] .bubble--icon {
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-theme="tropical"] .bubble--icon .bubble__icon {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  filter: none;
+}
+
+/* Tile shading */
+[data-theme="tropical"] .bubble--coral { background: radial-gradient(circle at 30% 25%, #F48FB1, var(--coral) 55%, var(--coral-dark)); }
+[data-theme="tropical"] .bubble--teal  { background: radial-gradient(circle at 30% 25%, #CE93D8, var(--teal)  55%, var(--teal-dark)); }
+[data-theme="tropical"] .bubble--gold  { background: radial-gradient(circle at 30% 25%, #80DEEA, var(--gold)  55%, var(--gold-dark)); }
+[data-theme="tropical"] .bubble--plum  { background: radial-gradient(circle at 30% 25%, #A5D6A7, var(--plum)  55%, var(--plum-dark)); }
+
+/* ── Decorative scene panel (tropical theme only) ───────────────────────── */
+
+.game-scene {
+  display: none; /* hidden in all themes except tropical */
+}
+
+[data-theme="tropical"] .game-scene {
+  display: block;
+  position: relative;
+  height: 120px;
+  border-radius: 16px;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #B2EBF2 0%,
+    #E0F7FA 30%,
+    #FFF9C4 60%,
+    #FFCCBC 80%,
+    #F8BBD0 100%
+  );
+}
+
+.game-scene__sky {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(255,255,150,0.55) 0%, transparent 55%);
+}
+
+.game-scene__ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: linear-gradient(to bottom, #A5D6A7, #66BB6A);
+  border-radius: 0 0 16px 16px;
+}
+
+/* CSS palm tree silhouette — trunk + fronds via clip-path */
+.game-scene__palm {
+  position: absolute;
+  bottom: 28px;
+}
+
+.game-scene__palm::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 52px;
+  background: #5D4037;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Three frond clusters via box-shadow trick */
+.game-scene__palm::after {
+  content: '';
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left:  22px solid transparent;
+  border-right: 22px solid transparent;
+  border-bottom: 28px solid #2E7D32;
+  filter: drop-shadow(-14px 10px 0 #388E3C) drop-shadow(14px 10px 0 #1B5E20)
+          drop-shadow(-8px -4px 0 #43A047)  drop-shadow(8px -4px 0 #2E7D32);
+}
+
+.game-scene__palm--left  { left: 14%; }
+.game-scene__palm--right { right: 14%; transform: scaleX(-1); }
+
+/* ── Icon tiles — transparent, emoji fills the space (applies to all themes) ── */
+.bubble--icon {
+  background: transparent;
+  box-shadow: none;
+}
+
+.bubble--icon .bubble__icon {
+  font-size: clamp(1.8rem, 5.5vw, 2.5rem);
+}
+
+@keyframes drop-in {
+  from { transform: translateY(-16px) scale(0.65); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ---------- Booster tray ---------- */
+
+.booster-tray {
+  margin-top: 0.65rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 0.6rem 1rem 0.7rem;
+  backdrop-filter: blur(8px);
+}
+
+[data-theme="classic"] .booster-tray {
+  backdrop-filter: none;
+}
+
+.booster-tray__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-muted);
+}
+
+.booster-tray__buttons {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.booster-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: var(--booster-btn-bg);
+  border: 1.5px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 100ms ease, transform 100ms ease, border-color 100ms ease;
+  min-width: 58px;
+}
+
+.booster-btn:hover:not(:disabled) {
+  background: var(--booster-btn-hover);
+  transform: translateY(-1px);
+}
+
+.booster-btn:focus-visible {
+  outline: 2px solid var(--booster-selected-border);
+  outline-offset: 2px;
+}
+
+.booster-btn--selected {
+  background: var(--booster-selected-bg);
+  border-color: var(--booster-selected-border);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--booster-selected-border) 30%, transparent);
+}
+
+.booster-btn--empty,
+.booster-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.booster-btn__icon  { font-size: 1.3rem; line-height: 1; }
+
+.booster-btn__count {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--on-surface-muted);
+}
+
+.booster-btn--selected .booster-btn__count {
+  color: var(--booster-selected-border);
+}
+
+/* ---------- Result modal ---------- */
+
+.result-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--result-overlay);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.result-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem;
+  max-width: 320px;
+  text-align: center;
+}
+
+.result-card h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+  color: var(--result-title);
+}
+
+.result-card__score {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--on-surface);
+  margin: 0 0 0.4rem;
+}
+
+.result-card p {
+  color: var(--on-surface-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+
+.result-card__button {
+  font-family: var(--font-body);
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, var(--coral), var(--gold));
+  color: #fff;
+  cursor: pointer;
+  transition: filter 120ms ease;
+}
+
+.result-card__button:hover { filter: brightness(1.1); }
+
+.result-card__button:focus-visible {
+  outline: 3px solid var(--on-surface);
+  outline-offset: 2px;
+}
+
+/* Multiple action buttons in result modal */
+.result-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.result-card__button--primary {
+  background: linear-gradient(135deg, var(--teal), var(--coral));
+  font-size: 1rem;
+  padding: 0.75rem 1.4rem;
+}
+
+.result-card__button--ghost {
+  background: transparent;
+  border: 1.5px solid var(--surface-border);
+  color: var(--on-surface-muted);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+.result-card__button--ghost:hover { filter: none; background: var(--surface-border); }
+
+/* ══════════════════════════════════════════════════════════════════
+   SPICY — drink decorations, tile gradients, theme overrides
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Floating drink cups — hidden in all non-spicy themes */
+.spicy-drink {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background-size: cover;
+  background-position: center top;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
+
+[data-theme="spicy"] .spicy-drink {
+  animation: drink-float var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes drink-float {
+  0%, 100% { transform: rotate(var(--tilt, -6deg)) translateY(0); }
+  50%       { transform: rotate(var(--tilt, -6deg)) translateY(-12px); }
+}
+
+/* Drink images */
+.spicy-drink--1,
+.spicy-drink--4 { background-image: url('/images/Starbucks-Spicy-Dragonfruit.jpg'); }
+.spicy-drink--2,
+.spicy-drink--5 { background-image: url('/images/Starbucks-Spicy-Pineapple.jpg'); }
+.spicy-drink--3,
+.spicy-drink--6 { background-image: url('/images/Starbucks-Spicy-Strawberry.jpg'); }
+
+/* Positions & timing — scattered outside the game board area */
+[data-theme="spicy"] .spicy-drink--1 {
+  top: 4%; left: 2%; width: 100px; height: 100px;
+  --tilt: -10deg; --dur: 3.8s; --delay: 0s; opacity: 0.88;
+}
+[data-theme="spicy"] .spicy-drink--2 {
+  top: 6%; right: 2%; width: 110px; height: 110px;
+  --tilt: 8deg; --dur: 4.4s; --delay: -1.2s; opacity: 0.85;
+}
+[data-theme="spicy"] .spicy-drink--3 {
+  top: 36%; left: 1%; width: 90px; height: 90px;
+  --tilt: -6deg; --dur: 3.5s; --delay: -2.8s; opacity: 0.80;
+}
+[data-theme="spicy"] .spicy-drink--4 {
+  top: 38%; right: 1%; width: 95px; height: 95px;
+  --tilt: 12deg; --dur: 5.0s; --delay: -0.5s; opacity: 0.82;
+}
+[data-theme="spicy"] .spicy-drink--5 {
+  bottom: 12%; left: 2%; width: 105px; height: 105px;
+  --tilt: -8deg; --dur: 4.1s; --delay: -3.5s; opacity: 0.85;
+}
+[data-theme="spicy"] .spicy-drink--6 {
+  bottom: 8%; right: 2%; width: 100px; height: 100px;
+  --tilt: 6deg; --dur: 3.7s; --delay: -1.8s; opacity: 0.88;
+}
+
+/* Tile gradients */
+[data-theme="spicy"] .bubble--coral { background: radial-gradient(circle at 30% 25%, #FCA5A5, var(--coral) 55%, var(--coral-dark)); }
+[data-theme="spicy"] .bubble--teal  { background: radial-gradient(circle at 30% 25%, #F9A8D4, var(--teal)  55%, var(--teal-dark)); }
+[data-theme="spicy"] .bubble--gold  { background: radial-gradient(circle at 30% 25%, #FED7AA, var(--gold)  55%, var(--gold-dark)); }
+[data-theme="spicy"] .bubble--plum  { background: radial-gradient(circle at 30% 25%, #86EFAC, var(--plum)  55%, var(--plum-dark)); }
+
+/* Chili icon tile — transparent, full emoji */
+[data-theme="spicy"] .bubble--icon {
+  background: transparent;
+  box-shadow: none;
+}
+[data-theme="spicy"] .bubble--icon .bubble__icon {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* HUD icon swatch */
+[data-theme="spicy"] .hud__swatch--icon { background: #991B1B; font-size: 0.8rem; }
+
+/* ---------- Level select ---------- */
+
+.level-select {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.level-select__heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.level-select__cards {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.level-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1.5px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  min-width: 130px;
+  backdrop-filter: blur(8px);
+  transition: transform 140ms ease, filter 140ms ease, border-color 140ms ease;
+}
+
+.level-card:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.06);
+  border-color: var(--coral);
+}
+
+.level-card:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.level-card__star {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.level-card__num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--on-surface-muted);
+}
+
+.level-card__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--on-surface);
+}
+
+.level-card__grid {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--coral);
+}
+
+.level-card__moves {
+  font-size: 0.75rem;
+  color: var(--on-surface-muted);
+}
+
+/* ---------- In-game top bar ---------- */
+
+.game-board-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.back-btn:hover { background: rgba(255, 255, 255, 0.22); }
+
+.level-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.05em;
+}

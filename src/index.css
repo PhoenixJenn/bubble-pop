@@ -1,0 +1,211 @@
+/* ─── BEACHY (default) ────────────────────────────────────────────────────── */
+:root {
+  --body-bg: linear-gradient(
+    170deg,
+    #2D0650 0%,
+    #8B1B6A 28%,
+    #D94040 58%,
+    #FF7043 78%,
+    #FFB300 100%
+  );
+
+  --surface:        rgba(255, 247, 232, 0.92);
+  --surface-raised: rgba(255, 242, 215, 0.96);
+  --surface-border: rgba(220, 160, 90, 0.22);
+  --on-surface:     #3E1800;
+  --on-surface-muted: #7B4A28;
+
+  --coral: #FF5252;  --coral-dark: #C62828;
+  --teal:  #00B8D4;  --teal-dark:  #006978;
+  --gold:  #FFB300;  --gold-dark:  #E65100;
+  --plum:  #EC407A;  --plum-dark:  #AD1457;
+
+  /* Chrome tokens — all theme-switchable */
+  --moves-box:            #2D0650;
+  --moves-label-color:    #C78FE0;
+  --score-color:          #D94040;
+  --booster-btn-bg:       rgba(255, 240, 210, 0.70);
+  --booster-btn-hover:    rgba(255, 228, 180, 0.90);
+  --booster-selected-bg:  rgba(255, 200, 100, 0.40);
+  --booster-selected-border: #FF7043;
+  --result-overlay:       rgba(45, 6, 80, 0.82);
+  --result-title:         #D94040;
+
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── CLASSIC ─────────────────────────────────────────────────────────────── */
+[data-theme="classic"] {
+  --body-bg: radial-gradient(circle at 20% 0%, #1B2A45 0%, #0F1A2B 55%);
+
+  --surface:        #16233A;
+  --surface-raised: #16233A;
+  --surface-border: rgba(255, 255, 255, 0.06);
+  --on-surface:     #F4F6FB;
+  --on-surface-muted: #8592AD;
+
+  --coral: #FF6F59;  --coral-dark: #D94F3C;
+  --teal:  #1FB6A8;  --teal-dark:  #128C81;
+  --gold:  #FFC24B;  --gold-dark:  #E0A22E;
+  --plum:  #9B7EDE;  --plum-dark:  #7857BE;
+
+  --moves-box:            #1A4A36;
+  --moves-label-color:    #7DBFA0;
+  --score-color:          #FFC24B;
+  --booster-btn-bg:       #1E3050;
+  --booster-btn-hover:    #253B60;
+  --booster-selected-bg:  #1A4A36;
+  --booster-selected-border: #FFC24B;
+  --result-overlay:       rgba(15, 26, 43, 0.88);
+  --result-title:         #FFC24B;
+}
+
+/* ─── CHRISTMAS ───────────────────────────────────────────────────────────── */
+[data-theme="christmas"] {
+  --body-bg: linear-gradient(
+    160deg,
+    #071407 0%,
+    #0F2E0F 30%,
+    #1A0808 65%,
+    #2D1010 100%
+  );
+
+  --surface:        rgba(255, 250, 242, 0.93);
+  --surface-raised: rgba(255, 246, 234, 0.97);
+  --surface-border: rgba(180, 50, 50, 0.22);
+  --on-surface:     #1A0500;
+  --on-surface-muted: #6B2020;
+
+  --coral: #E03455;  --coral-dark: #A81030;   /* bright red */
+  --teal:  #5BAA9B;  --teal-dark:  #3A7A6D;   /* seafoam teal */
+  --gold:  #C89528;  --gold-dark:  #8A6010;   /* mustard gold */
+  --plum:  #A82222;  --plum-dark:  #6A0D0D;   /* dark crimson */
+
+  --moves-box:              #A82222;
+  --moves-label-color:      #F4A0A0;
+  --score-color:            #E03455;
+  --booster-btn-bg:         rgba(255, 240, 230, 0.72);
+  --booster-btn-hover:      rgba(255, 225, 210, 0.92);
+  --booster-selected-bg:    rgba(224, 52, 85, 0.15);
+  --booster-selected-border: #E03455;
+  --result-overlay:         rgba(7, 20, 7, 0.87);
+  --result-title:           #E03455;
+}
+
+/* ─── TROPICAL ────────────────────────────────────────────────────────────── */
+[data-theme="tropical"] {
+  --body-bg: linear-gradient(
+    160deg,
+    #4A0080 0%,
+    #C2185B 45%,
+    #880E4F 100%
+  );
+
+  --surface:        rgba(255, 250, 248, 0.93);
+  --surface-raised: rgba(255, 246, 244, 0.97);
+  --surface-border: rgba(180, 50, 150, 0.18);
+  --on-surface:     #2A0030;
+  --on-surface-muted: #7A3080;
+
+  --coral: #E91E63;  --coral-dark: #880E4F;   /* hot pink */
+  --teal:  #7B1FA2;  --teal-dark:  #4A0072;   /* purple */
+  --gold:  #00ACC1;  --gold-dark:  #006064;   /* cyan */
+  --plum:  #2E7D32;  --plum-dark:  #1B5E20;   /* dark green */
+
+  --moves-box:              #4A0080;
+  --moves-label-color:      #CE93D8;
+  --score-color:            #C2185B;
+  --booster-btn-bg:         rgba(255, 240, 252, 0.72);
+  --booster-btn-hover:      rgba(255, 225, 248, 0.92);
+  --booster-selected-bg:    rgba(194, 24, 91, 0.15);
+  --booster-selected-border: #C2185B;
+  --result-overlay:         rgba(74, 0, 128, 0.86);
+  --result-title:           #E91E63;
+}
+
+/* ─── STARRY NIGHT ────────────────────────────────────────────────────────── */
+[data-theme="starry-night"] {
+  --body-bg: radial-gradient(
+    ellipse at 25% 15%,
+    #080420 0%,
+    #0A0F2E 35%,
+    #05081A 65%,
+    #020510 100%
+  );
+
+  /* Dark glass surfaces — aurora shows through */
+  --surface:        rgba(8, 12, 40, 0.72);
+  --surface-raised: rgba(12, 16, 50, 0.82);
+  --surface-border: rgba(1, 203, 174, 0.15);
+  --on-surface:     #D8E8FF;
+  --on-surface-muted: #7090C0;
+
+  /* Aurora tile palette — pulled from the real aurora photo */
+  --coral: #6B3EC4;  --coral-dark: #3B1E80;   /* aurora violet      (value 3) */
+  --teal:  #01CBAE;  --teal-dark:  #008F78;   /* aurora turquoise   (value 2) */
+  --gold:  #2082A6;  --gold-dark:  #0F5070;   /* aurora steel blue  (value 1) */
+  --plum:  #00C87A;  --plum-dark:  #007848;   /* aurora bright green(value 4) */
+
+  --moves-box:              #080420;
+  --moves-label-color:      #9088CC;
+  --score-color:            #01CBAE;
+  --booster-btn-bg:         rgba(20, 30, 80, 0.70);
+  --booster-btn-hover:      rgba(30, 45, 100, 0.90);
+  --booster-selected-bg:    rgba(82, 64, 148, 0.25);
+  --booster-selected-border: #9088CC;
+  --result-overlay:         rgba(5, 8, 24, 0.90);
+  --result-title:           #01CBAE;
+}
+
+/* ─── SPICY ───────────────────────────────────────────────────────────────── */
+[data-theme="spicy"] {
+  --body-bg: radial-gradient(
+    ellipse at 50% 5%,
+    #FF6B35 0%,
+    #E84118 28%,
+    #C0392B 58%,
+    #7D1A10 100%
+  );
+
+  --surface:        rgba(255, 246, 236, 0.92);
+  --surface-raised: rgba(255, 240, 224, 0.96);
+  --surface-border: rgba(220, 60, 20, 0.22);
+  --on-surface:     #3D0900;
+  --on-surface-muted: #8B2500;
+
+  /* Drink-inspired palette — strawberry red, dragonfruit magenta, pineapple amber, chili green */
+  --coral: #EF4444;  --coral-dark: #B91C1C;   /* strawberry red   (value 3) */
+  --teal:  #DB2777;  --teal-dark:  #9D174D;   /* dragonfruit pink (value 2) */
+  --gold:  #F97316;  --gold-dark:  #C2410C;   /* pineapple amber  (value 1) */
+  --plum:  #15803D;  --plum-dark:  #14532D;   /* chili green      (value 4) */
+
+  --moves-box:              #B91C1C;
+  --moves-label-color:      #FCA5A5;
+  --score-color:            #EF4444;
+  --booster-btn-bg:         rgba(255, 235, 218, 0.72);
+  --booster-btn-hover:      rgba(255, 220, 196, 0.92);
+  --booster-selected-bg:    rgba(239, 68, 68, 0.15);
+  --booster-selected-border: #EF4444;
+  --result-overlay:         rgba(61, 9, 0, 0.87);
+  --result-title:           #EF4444;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--body-bg);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  transition: background 400ms ease, color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
