@@ -6,9 +6,7 @@ export default function HowToPlay({ iconChar }) {
 
         <li className="how-to-play__tip">
           <div className="how-to-play__visual">
-            <span className="mini-tile mini-tile--coral" />
-            <span className="mini-tile mini-tile--coral" />
-            <span className="mini-tile mini-tile--coral" />
+            <span className="mini-badge">2+</span>
           </div>
           <span>Tap 2+ connected same-color tiles to pop them</span>
         </li>

@@ -1048,6 +1048,22 @@
   justify-content: center;
 }
 
+/* 2+ badge */
+.mini-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+
 /* Mini tile — same shape as game tiles, just small */
 .mini-tile {
   width: 18px;
