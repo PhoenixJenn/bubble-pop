@@ -6,10 +6,10 @@ import './App.css'
 
 const THEMES = [
   { id: 'beachy',       label: '🌅 Beachy',       iconChar: '🌴' },
-  { id: 'christmas',    label: '🎄 Christmas',    iconChar: '🌲' },
   { id: 'tropical',     label: '🌺 Tropical',     iconChar: '🌺' },
   { id: 'starry-night', label: '🌠 Starry Night', iconChar: '⭐' },
   { id: 'spicy',        label: '🌶️ Spicy',        iconChar: '🌶️' },
+  { id: 'christmas',    label: '🎄 Christmas',    iconChar: '🌲' },
 ]
 
 const LEVEL_STARS = ['⭐', '🌟', '💫']
