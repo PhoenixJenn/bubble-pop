@@ -735,6 +735,46 @@
 .booster-btn--empty,
 .booster-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+/* Tooltip */
+.booster-btn[data-tooltip] { position: relative; }
+
+.booster-btn[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 10, 5, 0.88);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 100;
+}
+
+.booster-btn[data-tooltip]::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(20, 10, 5, 0.88);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 100;
+}
+
+.booster-btn[data-tooltip]:hover:not(:disabled)::before,
+.booster-btn[data-tooltip]:hover:not(:disabled)::after { opacity: 1; }
+
 .booster-btn__icon  { font-size: 1.3rem; line-height: 1; }
 
 .booster-btn__count {

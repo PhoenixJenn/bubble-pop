@@ -16,10 +16,10 @@ import {
 } from '../game/boardLogic.js'
 
 const BOOSTERS = {
-  bomb:      { icon: '💥', label: 'Bomb' },
-  rowClear:  { icon: '↔',  label: 'Row'  },
-  colClear:  { icon: '↕',  label: 'Col'  },
-  colorBomb: { icon: '✦',  label: 'Color' },
+  bomb:      { icon: '💥', label: 'Bomb',  tip: 'Clears a 3×3 area'          },
+  rowClear:  { icon: '↔',  label: 'Row',   tip: 'Clears the entire row'       },
+  colClear:  { icon: '↕',  label: 'Col',   tip: 'Clears the entire column'    },
+  colorBomb: { icon: '✦',  label: 'Color', tip: 'Clears all tiles of one color' },
 }
 
 function buildInitialState(level) {
@@ -204,7 +204,7 @@ export default function GameBoard({ level, levelNumber, isLastLevel, iconChar, h
       <div className="booster-tray">
         <p className="booster-tray__label">BOOSTERS AVAILABLE</p>
         <div className="booster-tray__buttons">
-          {Object.entries(BOOSTERS).map(([key, { icon, label }]) => {
+          {Object.entries(BOOSTERS).map(([key, { icon, label, tip }]) => {
             const count = state.boosters[key] || 0
             const isSelected = state.selectedBooster === key
             return (
@@ -215,6 +215,7 @@ export default function GameBoard({ level, levelNumber, isLastLevel, iconChar, h
                 onClick={() => handleBoosterSelect(key)}
                 disabled={count === 0 || state.status !== 'playing'}
                 aria-label={`${label} booster, ${count} remaining`}
+                data-tooltip={tip}
               >
                 <span className="booster-btn__icon">{icon}</span>
                 <span className="booster-btn__count">{count}</span>
