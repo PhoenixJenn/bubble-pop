@@ -26,18 +26,21 @@ Then open the local URL Vite prints (usually `http://localhost:5173`).
 
 | Booster | Effect |
 |---------|--------|
-| Bomb | Clears an area around a selected tile |
+| Burst | Clears a 3×3 area around a selected tile |
 | Row clear | Clears an entire row |
 | Column clear | Clears an entire column |
-| Color bomb | Clears all tiles of a selected color |
+| Color burst | Clears all tiles of a selected color |
 
 Strategy: save boosters for final moves to finish off remaining targets.
 
 ## World & level structure
 
-- **4–5 worlds**, each with a distinct theme and icon type (e.g. "Adventure Awaits" uses tree icons, "Prismatic Boardwalks" uses X marks)
-- Each world has **3 levels** of increasing difficulty (fewer moves, more colors, higher targets)
-- A **bonus level** unlocks after completing all 3
+- **5 themes**, each with a distinct visual style and icon type: Beachy (🌴 palm tree), Christmas (🌲 tree), Tropical (🌺 flower), Starry Night (⭐ star), and Spicy (🌶️ chili pepper)
+- **3 levels** of increasing difficulty, playable in any theme:
+  - **Pop** — 8×8 grid, 20 moves
+  - **Super Pop** — 9×9 grid, 25 moves
+  - **Mega Pop** — 10×10 grid, 30 moves
+- Themes are cosmetic — switch anytime from the level select screen
 
 ## Current build (MVP)
 
