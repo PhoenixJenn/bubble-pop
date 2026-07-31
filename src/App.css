@@ -1176,3 +1176,43 @@
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.05em;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   CHRISTMAS — ornament tile background
+   ══════════════════════════════════════════════════════════════════ */
+
+.christmas-bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/christmasornaments.png') repeat;
+  background-size: 1400px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+[data-theme="christmas"] .christmas-bg {
+  opacity: 0.18;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BEACHY — beach scene illustration
+   ══════════════════════════════════════════════════════════════════ */
+
+.beach-scene {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80vh;
+  background: url('/images/sunset.png') center bottom / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+}
+
+[data-theme="beachy"] .beach-scene {
+  opacity: 1;
+}

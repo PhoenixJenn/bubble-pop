@@ -31,6 +31,8 @@ function App() {
   return (
     <>
       <div className="theme-canvas" aria-hidden="true">
+        <div className="beach-scene" />
+        <div className="christmas-bg" />
         <div className="aurora aurora--1" />
         <div className="aurora aurora--2" />
         <div className="aurora aurora--3" />
@@ -86,6 +88,7 @@ function App() {
           </div>
         ) : (
           <GameBoard
+            key={levelIdx}
             level={LEVELS[levelIdx]}
             levelNumber={levelIdx + 1}
             isLastLevel={levelIdx === LEVELS.length - 1}
