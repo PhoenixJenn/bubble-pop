@@ -590,22 +590,6 @@
   display: none; /* hidden in all themes except tropical */
 }
 
-[data-theme="tropical"] .game-scene {
-  display: block;
-  position: relative;
-  height: 120px;
-  border-radius: 16px;
-  margin-top: 0.65rem;
-  overflow: hidden;
-  background: linear-gradient(
-    to bottom,
-    #B2EBF2 0%,
-    #E0F7FA 30%,
-    #FFF9C4 60%,
-    #FFCCBC 80%,
-    #F8BBD0 100%
-  );
-}
 
 .game-scene__sky {
   position: absolute;
